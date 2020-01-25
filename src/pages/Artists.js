@@ -23,7 +23,7 @@ class Artists extends React.Component {
         return (
             <div className="artists">
                 {this.state.artists.map((value) => {
-                    return <CircleImage key={value.id} value={value} centered />
+                    return <CircleImage key={value.id} value={value} type="artist" />
                 })}
             </div>
         )

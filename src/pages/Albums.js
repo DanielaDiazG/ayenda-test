@@ -19,7 +19,7 @@ class Albums extends React.Component {
         return (
             <div className="albums">
                 {this.state.albums.map((value) => {
-                    return <CircleImage key={value.id} value={value} />
+                    return <CircleImage key={value.id} value={value} type="albums" />
                 })}
             </div>
         )
