@@ -1,14 +1,13 @@
 .rectangle{
-    border-top:0;
-    border-left: 0;
-    border-right: 0;
-    border:1px;
+    border-bottom: 1px solid #293133;
     height: 50px;
-    border-style: solid;
-    border-color: 	#293133;
     font-size: small;
+    display: flex;
+    align-items: flex-end;
 }
-.rectangleName{
+
+.rectangle__name{
     text-align: center;
     color: #FFF;
 }
+
