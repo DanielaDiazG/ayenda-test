@@ -21,6 +21,7 @@ class Artists extends React.Component {
         axios.get(`https://rubytify.herokuapp.com/api/v1/genres`).then((resp) => {
             this.setState({ genres: resp.data.data })
         })
+        console.log(console.log(Math.floor((Math.random() * (this.state.genres.length-1)) + 1)))
     }
 
     render() {
@@ -29,7 +30,7 @@ class Artists extends React.Component {
                 {this.state.artists.map((value) => {
                     return <CircleImage key={value.id} value={value} type="artist" />
                 })}
-                <form action={`/genres/${state.genres[Math.floor((Math.random() * (this.state.genres.length-1)) + 1)]}/random_songs`}>
+                <form action={`/genres/${state.genres[1]}/random_songs`}>
                     <input type="submit" value="Cancion Aleatoria" />
                 </form>
             </div>
