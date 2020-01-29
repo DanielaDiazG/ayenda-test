@@ -21,6 +21,7 @@ class Artists extends React.Component {
         axios.get(`https://rubytify.herokuapp.com/api/v1/genres`).then((resp) => {
             this.setState({ genres: resp.data.data })
         })
+        console.log("imprime daniela tu puedes")
         console.log(console.log(Math.floor((Math.random() * (this.state.genres.length-1)) + 1)))
     }
 
