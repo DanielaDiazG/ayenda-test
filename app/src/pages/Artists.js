@@ -22,7 +22,6 @@ class Artists extends React.Component {
             this.setState({ genres: resp.data.data })
         })
         console.log("imprime daniela tu puedes")
-        console.log(console.log(Math.floor((Math.random() * (this.state.genres.length-1)) + 1)))
     }
 
     render() {
