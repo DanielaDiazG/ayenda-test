@@ -4,6 +4,7 @@ import Artists from "./pages/Artists";
 import Albums from "./pages/Albums";
 import Songs from './pages/Songs';
 import Genres from './pages/Genres';
+import MusicPlayer from './pages/MusicPlayer';
 import './App.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Route path="/albums/:id/songs" component={Songs} />
       <Route exact path="/genres" component={Genres} />
       <Route path="/genres/:genre_name/random_songs" component={Songs} />
+      <Route path="/player" component={MusicPlayer} />
     </Switch>
   );
 }

@@ -9,14 +9,26 @@ class Songs extends React.Component {
     }
 
     componentDidMount() {
-        const { match: { params: {id, genre_name } } } = this.props
-        const url = id ? `https://rubytify.herokuapp.com/api/v1/albums/${id}/songs` 
-        : `https://rubytify.herokuapp.com/api/v1/genres/${genre_name}/random_song`;
+        console.log(this.state.songs)
+        const { match: { params: { id, genre_name } } } = this.props
 
-        axios.get(url).then((resp) => {
-            const data = resp.data.data;
-            this.setState({ songs: Array.isArray(data) ? data : [data]})
-        })
+        if (id) {
+            const url = `https://rubytify.herokuapp.com/api/v1/albums/${id}/songs`;
+
+            axios.get(url).then((resp) => {
+                const data = resp.data.data;
+                this.setState({ songs: data })
+            })
+        } else {
+            const url = `https://rubytify.herokuapp.com/api/v1/genres/${genre_name}/random_song`;
+
+            for (let i = 0; i < 3; i++) {
+                axios.get(url).then((resp) => {
+                    const data = resp.data.data;
+                    this.setState({ songs: [...this.state.songs, data]})
+                })
+            }
+        }
     }
 
     render() {

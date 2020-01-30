@@ -4,6 +4,7 @@
     font-size: small;
     display: flex;
     align-items: flex-end;
+    cursor: pointer;
 }
 
 .rectangle__name{

@@ -21,7 +21,18 @@ class Artists extends React.Component {
         axios.get(`https://rubytify.herokuapp.com/api/v1/genres`).then((resp) => {
             this.setState({ genres: resp.data.data })
         })
-        console.log("imprime daniela tu puedes")
+    }
+
+    handleRandomSong = () => {
+        const numGenres = this.state.genres.length;
+        const randomNumber = Math.floor(Math.random() * numGenres)
+        axios.get(`https://rubytify.herokuapp.com/api/v1/genres/${this.state.genres[randomNumber]}/random_song`).then((resp) => {
+            if (resp.data.data) {
+                this.props.history.push({
+                    pathname: `/genres/${this.state.genres[randomNumber]}/random_songs`
+                })
+            }
+        })
     }
 
     render() {
@@ -30,9 +41,7 @@ class Artists extends React.Component {
                 {this.state.artists.map((value) => {
                     return <CircleImage key={value.id} value={value} type="artist" />
                 })}
-                <form action={`/genres/${state.genres[1]}/random_songs`}>
-                    <input type="submit" value="Cancion Aleatoria" />
-                </form>
+                <button onClick={this.handleRandomSong}>Cancion Aleatoria</button>
             </div>
         )
     }
